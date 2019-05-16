@@ -1,0 +1,21 @@
+footer {
+  // position
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // box
+  padding: 10px;
+
+  // color
+  background: #f00;
+  color: #fff;
+
+
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}

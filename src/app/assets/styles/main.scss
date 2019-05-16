@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: arial;
+  font-size: 13px;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+a,
+textarea {
+  outline: none;
+}
+
+/**
+Layout
+**/
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: auto;
+}
+
+/**
+Form
+**/
+.form-row {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px;
+
+  .form-celd:nth-child(odd) {
+    padding-right: 10px;
+  }
+
+  .form-celd:nth-child(even) {
+    padding-left: 10px;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.form-celd {
+  label {
+    display: block;
+    margin: 0 0 10px;
+  }
+}
+
+.form-control {
+  padding: 5px 10px;
+  min-width: 300px;
+}
+
+/**
+Buttons
+**/
+.btn {
+  padding: 10px 20px;
+  margin: 0 10px;
+  display: inline-block;
+  background: grey;
+  color: white;
+  border: transparent;
+  cursor: pointer;
+
+  &-primary {
+    background: red;
+  }
+
+  &[disabled] {
+    opacity: .5;
+    cursor: default;
+  }
+}

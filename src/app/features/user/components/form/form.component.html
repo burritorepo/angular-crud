@@ -1,0 +1,89 @@
+<div class="user-form">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-celd">
+        <label>Nombre</label>
+         <!-- <input class="form-control" type="text"
+          [formControl]="name"
+        /> -->
+        <input class="form-control" type="text" formControlName="firstName"/>
+      </div>
+      <div class="form-celd">
+        <label>Apellido</label>
+        <input class="form-control" type="text" formControlName="lastName"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-celd">
+        <label>Correo</label>
+        <input class="form-control" type="text" formControlName="email"/>
+      </div>
+      <div class="form-celd">
+        <label>Telefono</label>
+        <input class="form-control" type="text" formControlName="phone"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-celd">
+        <label>Pais</label>
+        <select class="form-control" formControlName="country">
+          <option value="" disabled>Seleccionar</option>
+          <option value="0">Peru</option>
+          <option value="1">Argentina</option>
+          <option value="2">Chile</option>
+          <option value="3">Venezuela</option>
+          <option value="4">Ecuador</option>
+          <option value="5">Paraguay</option>
+        </select>
+      </div>
+      <div class="form-celd">
+        <label>Url fotografia</label>
+        <input class="form-control" type="text" formControlName="photo"/>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-celd">
+        <label>Sobre mi</label>
+        <textarea class="form-control" name="" id="" cols="30" rows="10" formControlName="about"></textarea>
+      </div>
+    </div>
+    <div class="form-row">
+      <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Aceptar</button>
+      <button class="btn" type="reset">Cancelar</button>
+    </div>
+  </form>
+
+  Form Value {{userForm.value | json}}
+  Form valid {{userForm.valid}}
+</div>
+
+
+<!-- <form #form="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+    <div class="form-celd">
+      <label>Nombre</label>
+      <input class="form-control" type="text"
+        required
+        [(ngModel)]="userForm.firstname"
+        name="firstname"
+        #firstname="ngModel"/>
+      <div>
+        class touched {{firstname.touched}}
+      </div>
+      <div>
+        class dirty {{firstname.dirty}}
+      </div>
+      <div>
+        class valid {{firstname.valid}}
+      </div>
+    </div>
+    <div class="form-celd">
+      <label>Apellido</label>
+      <input class="form-control" type="text" required [(ngModel)]="userForm.lastname" name="lastname"/>
+    </div>
+  </div>
+  <div class="form-row">
+    <button class="btn btn-primary" type="submit" [disabled]="!form.form.valid">Aceptar</button>
+    <button class="btn" type="reset">Cancelar</button>
+  </div>
+</form> -->

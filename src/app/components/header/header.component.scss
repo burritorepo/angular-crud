@@ -1,0 +1,35 @@
+header {
+  // position
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // box
+  padding: 10px;
+
+  // color
+  background: #f00;
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    margin-left: 10px;
+  }
+
+  a {
+    color: #fff;
+
+    &.is-active {
+      border-bottom: 1px solid #fff;
+    }
+  }
+
+
+  .logo {
+    font-size: 20px;
+  }
+}
