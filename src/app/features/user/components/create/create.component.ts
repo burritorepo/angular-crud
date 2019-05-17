@@ -9,6 +9,8 @@ import {
   NavigationExtras
 } from '@angular/router';
 
+import { UserService } from '../../../../api';
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -17,9 +19,14 @@ import {
 export class CreateComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
     console.log('create!!', route, router)
+    console.log('userService')
+    this.userService.getAllUser().subscribe((v) => {
+      console.log('v', v)
+    })
   }
 
   ngOnInit(): void { }
