@@ -1,12 +1,11 @@
 import {
   Component,
   OnInit,
+  Input,
   Output,
   EventEmitter
 } from '@angular/core';
 import {
-  FormGroup,
-  FormControl,
   FormBuilder,
   Validators
 } from '@angular/forms';
@@ -17,11 +16,7 @@ import {
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
-  // name = new FormControl('');
-  // userForm = new FormGroup({
-  //   firstName: new FormControl(''),
-  //   lastName: new FormControl('')
-  // });
+  @Input() valueUser: any;
   @Output() valueForm = new EventEmitter<boolean>();
 
   userForm = this.formBuilder.group({
@@ -32,21 +27,22 @@ export class FormComponent implements OnInit {
     country: ['', Validators.required],
     photo: ['', Validators.required],
     about: ['', Validators.required]
-  });
+  })
 
-  // userForm = {}
+  constructor(private formBuilder: FormBuilder) {}
 
-  constructor(private formBuilder: FormBuilder) {
-
+  ngOnInit(): void {
+    if (this.valueUser) {
+      this.userForm.patchValue(
+        this.valueUser
+      )
+    }
   }
 
-  ngOnInit(): void { }
-
   onSubmit() {
+    console.log('this.userForm.valid', this.userForm.valid)
     if (this.userForm.valid) {
       this.valueForm.emit(this.userForm.value)
     }
-    console.log('submit!!', JSON.stringify(this.userForm))
-    // console.log('this.userForm', this.userForm)
   }
 }

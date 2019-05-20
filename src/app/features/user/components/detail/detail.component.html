@@ -1,3 +1,5 @@
 <div class="user-detail">
-DETAIL
+    <ng-container *ngIf="user">
+      <app-card class="user__card" [user]="user"></app-card>
+    </ng-container>
 </div>

@@ -3,10 +3,11 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  Router,
   ActivatedRoute,
-  ParamMap
+  Router
 } from '@angular/router';
+
+import { UserService } from '../../../../api';
 
 @Component({
   selector: 'app-edit',
@@ -14,12 +15,28 @@ import {
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
+  user:object;
+
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private userService: UserService
   ) {
-    console.log('route', route.snapshot.params.id)
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    const { snapshot: { params: { id } } } = this.route;
+
+    this.userService.getUser(id).subscribe((user) => {
+      this.user = user;
+    })
+  }
+
+  onValueForm(value) {
+    const { snapshot: { params: { id } } } = this.route;
+    const newValue = Object.assign(value, {id});
+    this.userService.saveUser(id, newValue).subscribe(() => {
+      this.router.navigate(['/users']);
+    });
+  }
 }

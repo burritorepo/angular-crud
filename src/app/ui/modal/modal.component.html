@@ -1,0 +1,15 @@
+<div *ngIf="open" class="ui-modal ui-modal--medium">
+  <div class="ui-modal__wrap">
+    <header class="ui-modal__header">
+      <ng-content select="[header]"></ng-content>
+      <span class="ui-modal__close" (click)="onCancel($event)">X</span>
+    </header>
+    <div class="ui-modal__body">
+      <ng-content select="[body]"></ng-content>
+    </div>
+    <footer class="ui-modal__footer">
+      <button class="btn btn-primary" (click)="onAccept($event)">Aceptar</button>
+      <button class="btn" (click)="onCancel($event)">Cancelar</button>
+    </footer>
+  </div>
+</div>

@@ -1,15 +1,45 @@
-<div class="user-card" #card>
-  <a routerLink="/users/edit/{{user.id}}">edit</a>
-  <a (click)="onDelete($event, user.id)">Delete</a>
-  <a routerLink="/users/{{user.id}}">
-    <div class="user-card__picture">
-      <img [src]="user.photo" alt="">
-    </div>
-    <div class="user-card__info">
-      <h2>{{user.firstname}} {{user.lastname}}</h2>
-      <h3>{{user.email}}</h3>
-      <h4>{{user.phone}}</h4>
-      <p>{{user.about}}</p>
-    </div>
-  </a>
+<div class="card">
+  <ui-modal [open]="modalOpen" (accept)="acceptCallback($event)" (cancel)="cancelCallback($event)">
+    <ng-container header>Modal Eliminar</ng-container>
+    <ng-container body>
+      Estas seguro que deseas eliminarlo?
+    </ng-container>
+  </ui-modal>
+  <div class="card__btns">
+    <a class="btn" routerLink="/users/edit/{{user.id}}">Edit</a>
+    <a class="btn" (click)="onDelete($event, user.id)">Delete</a>
+  </div>
+  <div class="card__picture">
+    <a routerLink="/users/{{user.id}}">
+      <img [src]="user.photo" alt="{{user.firstName}} {{user.lastName}}" title="{{user.firstName}} {{user.lastName}}">
+    </a>
+  </div>
+  <div class="card__info">
+    <ul>
+      <li>
+        <span>Nombre</span>
+        <h2 class="detail">
+          <a routerLink="/users/{{user.id}}">
+            {{user.firstName}} {{user.lastName}}
+          </a>
+        </h2>
+      </li>
+      <li>
+        <span>Email</span>
+        <h3 class="detail">
+          <a href="mailto:{{user.email}}">{{user.email}}</a>
+        </h3>
+      </li>
+      <li>
+        <span>Telefono</span>
+        <h4 class="detail">
+          <a href="tel:{{user.phone}}">{{user.phone}}</a>
+        </h4>
+      </li>
+      <li>
+        <span>Sobre mi</span>
+        <p class="detail">{{user.about}}</p>
+      </li>
+    </ul>
+  </div>
 </div>

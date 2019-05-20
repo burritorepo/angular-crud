@@ -17,7 +17,7 @@ export class UserService {
     return this.apiService.get(`/users/${id}`);
   }
 
-  saveUser({id, body, headers}) {
+  saveUser(id, body) {
     return this.apiService.put(`/users/${id}`, body);
   }
 

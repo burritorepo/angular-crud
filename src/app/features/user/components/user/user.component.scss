@@ -1,8 +1,10 @@
 .user {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 -10px;
 
   &__card {
-
+    width: percentage(4/12);
+    padding: 0 10px;
   }
 }

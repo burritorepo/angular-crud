@@ -1,3 +1,5 @@
 <div class="user-edit">
-  Edit
+  <ng-container *ngIf="user">
+    <app-form [valueUser]="user" (valueForm)="onValueForm($event)"></app-form>
+  </ng-container>
 </div>
