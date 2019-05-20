@@ -20,7 +20,7 @@
         <span>Nombre</span>
         <h2 class="detail">
           <a routerLink="/users/{{user.id}}">
-            {{user.firstName}} {{user.lastName}}
+            {{user.firstName | upper:'pepe'}} {{user.lastName}}
           </a>
         </h2>
       </li>
