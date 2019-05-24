@@ -9,13 +9,21 @@ import { SharedModule } from './features/shared/shared.module';
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 
+// redux
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [...API_PROVIDERS, ...INTERCEPTORS_PROVIDERS],
   bootstrap: [AppComponent]
