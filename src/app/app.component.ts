@@ -4,6 +4,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +12,10 @@ import {
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  constructor() { }
+  count$: Observable<number>;
+
+  constructor() {
+  }
 
   ngOnInit(): void { }
 }

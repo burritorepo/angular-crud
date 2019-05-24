@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
+
 import { API_PROVIDERS } from './api';
-import { INTERCEPTORS_PROVIDERS } from './api/core'
+import { INTERCEPTORS_PROVIDERS } from './api/core';
 
 import { SharedModule } from './features/shared/shared.module';
 import { AppRoutingModule } from './app.routing.module';
+import { AppStoreModule } from './app.store.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -15,7 +17,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppStoreModule
   ],
   providers: [...API_PROVIDERS, ...INTERCEPTORS_PROVIDERS],
   bootstrap: [AppComponent]
