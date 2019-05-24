@@ -1,15 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { HttpHeaders } from '@angular/common/http';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json; charset=UTF-8'
-  })
-};
 
 @Injectable()
 export class ApiService {
@@ -25,7 +18,7 @@ export class ApiService {
 
   put(path: string, body: Object = {}): Observable<any> {
     return this.http
-      .put(`${environment.api_url}${path}`, JSON.stringify(body), httpOptions)
+      .put(`${environment.api_url}${path}`, JSON.stringify(body))
       .pipe(catchError(this.formatErrors));
   }
 

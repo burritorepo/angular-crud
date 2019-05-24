@@ -1,0 +1,22 @@
+<div class="login">
+  <div class="container">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-row form-row--vertical">
+        <div class="form-celd">
+          <label>Usuario</label>
+          <input class="form-control" type="text" formControlName="userName"/>
+        </div>
+        <div class="form-celd">
+          <label>Password</label>
+          <input class="form-control" type="password" formControlName="password"/>
+        </div>
+      </div>
+      <div class="form-row form-row--vertical">
+          <div class="form-celd">
+            <button class="btn btn-primary" [disabled]="!loginForm.valid">Ingresar</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</div>
