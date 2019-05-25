@@ -6,7 +6,7 @@ import {
 
 @NgModule({
   declarations: [],
-  imports: [StoreModule.forFeature('Login', loginReducer)],
+  imports: [StoreModule.forFeature('login', loginReducer)],
   exports: [StoreModule],
   providers: []
 })

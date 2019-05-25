@@ -3,28 +3,30 @@ import {
   OnInit
 } from '@angular/core';
 import { createSelector, Store } from '@ngrx/store';
-
-import { UserService } from '../../../../api';
-
 import {
-  AddUsers
+  GetUsers
 } from '../../store';
+
+const selectorListUsers = createSelector(
+  (state: any) => state.users,
+  (state: any) => state.listUsers
+);
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  users: Array<object>;
-
+  users: Array<object>
   constructor(
-    private userService: UserService,
     private store: Store<any>) {
   }
 
   ngOnInit(): void {
-    this.store.dispatch(new AddUsers());
-    this.userService.getAllUser().subscribe((users) => {
+    this.store.dispatch(new GetUsers());
+    this.store.select(selectorListUsers)
+    .subscribe((users) => {
       this.users = users;
     })
   }

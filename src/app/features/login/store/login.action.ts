@@ -7,12 +7,16 @@ export enum ActionTypes {
 
 export class Login implements Action {
   readonly type = ActionTypes.Login;
-  constructor(public payload:boolean) {
+  constructor(public payload: boolean) {
   }
 }
 
-export class AddUsers implements Action {
+export class Logout implements Action {
   readonly type = ActionTypes.Logout;
-  constructor(public payload:boolean) {
+  constructor(public payload: boolean) {
   }
 }
+
+export type Actions =
+  | Login
+  | Logout

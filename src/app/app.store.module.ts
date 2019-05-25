@@ -9,7 +9,7 @@ import { UserService } from './api';
 @NgModule({
   declarations: [],
   imports: [
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({}, { metaReducers: [] }),
     EffectsModule.forRoot([]),
     UserStoreModule,
     LoginStoreModule,

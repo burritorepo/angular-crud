@@ -9,7 +9,7 @@ import { UserService } from '../../api';
 @NgModule({
   declarations: [],
   imports: [
-    StoreModule.forFeature('Users', userReducer),
+    StoreModule.forFeature('users', userReducer),
     EffectsModule.forFeature([UserEffects])
   ],
   exports: [],
